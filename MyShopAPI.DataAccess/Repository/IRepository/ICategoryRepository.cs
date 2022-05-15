@@ -1,14 +1,15 @@
-﻿using MyShopAPI.Models;
+﻿using ShopAPI.Models;
 
-namespace MyShopAPI.DataAccess.Repository
+namespace ShopAPI.DataAccess.Repository.IRepository
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository:IRepository<Category>
     {
-        void CreateCategory(Category category);
-        IEnumerable<Category> GetCategory();
-        Category GetCategoryById(int id);
-        int DeleteCategory(int id);
-        Category Edit(int id, Category category);
-        void Save();
+        //void CreateCategory(Category category);
+        //IEnumerable<Category> GetCategory();
+        //Category GetCategoryById(int id);
+        //int DeleteCategory(int id);
+        //Category Edit(int id, Category category);
+        //void Save();
+        public void Update(Category product);
     }
 }

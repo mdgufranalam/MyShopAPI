@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MyShopAPI.DataAccess.Migrations
+namespace ShopAPI.DataAccess.Migrations
 {
     public partial class CatogeryAddedTodataBase : Migration
     {

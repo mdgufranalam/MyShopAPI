@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyShopAPI.DataAccess;
-using MyShopAPI.DataAccess.Data;
-using MyShopAPI.Models;
+using ShopAPI.DataAccess;
+using ShopAPI.DataAccess.Data;
+using ShopAPI.Models;
 using Newtonsoft.Json;
 
-namespace MyShopAPI.Controllers
+namespace ShopAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,7 +29,7 @@ namespace MyShopAPI.Controllers
         {
             try
             {
-                return Ok(_unitOfWork.Category.GetCategory());
+                return Ok(_unitOfWork.Category.GetAll());
             }
             catch (Exception ex)
             {
@@ -44,10 +44,10 @@ namespace MyShopAPI.Controllers
             try
             {
 
-                var category = _unitOfWork.Category.GetCategoryById(id);
+                var category = _unitOfWork.Category.GetFirstOrDefault(a => a.Id == id);
                 if (category == null)
                 {
-                    return NotFound("Category Not Found.");
+                    return NotFound("Category not found.");
                 }
                 return Ok(category);
             }
@@ -65,12 +65,17 @@ namespace MyShopAPI.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _logger.LogInformation("New Category Created : " + JsonConvert.SerializeObject(item), "CreateCategory(Category item)");
+                    _logger.LogInformation("Category created successfully. : " + JsonConvert.SerializeObject(item), "CreateCategory(Category item)");
                     item.CreatedDateTime = DateTime.Now;
-                    _unitOfWork.Category.CreateCategory(item);
+                    _unitOfWork.Category.Add(item);
                     _unitOfWork.Save();
+                    return Ok("Category created successfully.");
                 }
-                return Ok();
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+               
             }
             catch (Exception ex)
             {
@@ -86,16 +91,21 @@ namespace MyShopAPI.Controllers
             {
                 Category editeditem=null;
                 if (ModelState.IsValid)
-                {
-                     editeditem = _unitOfWork.Category.Edit(id, item);                   
-                    if (editeditem == null)
+                { var isValid=_unitOfWork.Category.GetFirstOrDefault(a=>a.Id == id);
+                    if (isValid == null)
                     {
-                        return NotFound("Category Not Found.");
+                        return NotFound("Category not found.");
                     }
+                    item.Id = id;
+                    _unitOfWork.Category.Update(item);                   
                     _unitOfWork.Save();
-
+                    return Ok("Category updated successfully.");
                 }
-                return Ok(editeditem);
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+               
             }
             catch (Exception ex)
             {
@@ -108,19 +118,15 @@ namespace MyShopAPI.Controllers
         public IActionResult Delete(int id)
         {
             try
-            {
-                if (ModelState.IsValid)
-                {
-                    var rs = _unitOfWork.Category.DeleteCategory(id);                    
-                    if (rs == 0)
+            {                
+                    var item=_unitOfWork.Category.GetFirstOrDefault(u=>u.Id == id); 
+                    if(item == null)
                     {
-                        return NotFound("Category Not Found.");
+                        return NotFound("Category not found.");
                     }
+                   _unitOfWork.Category.Remove(item);
                     _unitOfWork.Save();
-                    return Ok(rs);
-                }
-                else
-                    return BadRequest();
+                    return Ok("Category deleted successfully.");  
                 
             }
             catch (Exception ex)

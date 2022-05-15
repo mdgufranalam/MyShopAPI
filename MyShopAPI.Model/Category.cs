@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyShopAPI.Models
+namespace ShopAPI.Models
 {
     public class Category
     {

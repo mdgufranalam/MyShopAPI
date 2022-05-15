@@ -1,10 +1,10 @@
 using BulkyBook.DataAccess.DbInitializer;
 using Microsoft.EntityFrameworkCore;
-using MyShopAPI.DataAccess;
-using MyShopAPI.DataAccess.Data;
+using ShopAPI.DataAccess;
+using ShopAPI.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var Content = builder.Environment.ContentRootPath;
 // Add services to the container.
 
 builder.Services.AddControllers();

@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyShopAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ShopAPI.Models;
 
-namespace MyShopAPI.DataAccess.Data
+namespace ShopAPI.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -15,5 +10,6 @@ namespace MyShopAPI.DataAccess.Data
 
         }
         public DbSet<Category> Categories { get; set; } 
+        public DbSet<Product> Products { get; set; } 
     }
 }

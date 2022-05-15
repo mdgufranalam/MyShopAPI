@@ -1,10 +1,11 @@
-﻿using MyShopAPI.DataAccess.Repository;
+﻿using ShopAPI.DataAccess.Repository.IRepository;
 
-namespace MyShopAPI.DataAccess
+namespace ShopAPI.DataAccess
 {
     public interface IUnitOfWork
     {
         ICategoryRepository Category { get; }
+        IProductRepository Product { get; }
 
         void Save();
     }

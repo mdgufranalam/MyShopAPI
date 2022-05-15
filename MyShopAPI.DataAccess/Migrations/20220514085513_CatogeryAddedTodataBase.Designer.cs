@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyShopAPI.DataAccess.Data;
+using ShopAPI.DataAccess.Data;
 
 #nullable disable
 
-namespace MyShopAPI.DataAccess.Migrations
+namespace ShopAPI.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220514085513_CatogeryAddedTodataBase")]

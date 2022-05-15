@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MyShopAPI.DataAccess.Data;
+using ShopAPI.DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

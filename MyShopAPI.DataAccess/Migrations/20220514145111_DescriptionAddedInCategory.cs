@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MyShopAPI.DataAccess.Migrations
+namespace ShopAPI.DataAccess.Migrations
 {
     public partial class DescriptionAddedInCategory : Migration
     {
