@@ -40,6 +40,10 @@ namespace ShopAPI.DataAccess.Repository
                     query = query.Include(includeProp);
                 }
             }
+            //if (filter != null)
+            //{
+            //    query = query.Where(filter);
+            //}
             return query.ToList();
         }
 

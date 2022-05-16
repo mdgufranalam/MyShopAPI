@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using ShopAPI.DataAccess;
 using ShopAPI.DataAccess.Data;
 using ShopAPI.Models;
+using System.Globalization;
+using System.Linq;
 
 namespace ShopAPI.Controllers
 {
@@ -32,7 +34,7 @@ namespace ShopAPI.Controllers
             try
             {
                 //return Ok(_unitOfWork.Product.GetProduct());
-                return Ok(_unitOfWork.Product.GetAll(includeProperties:"Category"));
+                return Ok(_unitOfWork.Product.GetAll(includeProperties:"Category").OrderByDescending(a=>a.LastUpdateDate));
             }
             catch (Exception ex)
             {
@@ -47,7 +49,7 @@ namespace ShopAPI.Controllers
             try
             {
 
-                var Product = _unitOfWork.Product.GetFirstOrDefault(u=>u.Id==id);
+                var Product = _unitOfWork.Product.GetFirstOrDefault(u=>u.Id==id, includeProperties: "Category");
                 if (Product == null)
                 {
                     return NotFound("Product not found.");
@@ -190,6 +192,42 @@ namespace ShopAPI.Controllers
 
         }
 
+        [HttpGet("[action]/{searchstring}")]       
+        public IActionResult SearchProducts(string searchstring)
+        {
+            try
+            {
+                var allItems = _unitOfWork.Product.GetAll(filter: y => (y.Title.ToLower().Contains(searchstring.ToLower()) || y.Category.Name.ToLower().Contains(searchstring.ToLower()) || y.Category.Description.ToLower().Contains(searchstring.ToLower()) || y.Description.ToLower().Contains(searchstring.ToLower())), includeProperties: "Category");
+                if (allItems.Count() == 0)
+                {
+                    return NotFound("Product not found.");
+                }
+                return Ok(allItems);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex.Message, "Get(int id)", "Exception");
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
+            }
+        }
+        [HttpGet("[action]/{category}")]       
+        public IActionResult CategoryWiseProduct(string category)
+        {
+            try
+            {
+                var allItems = _unitOfWork.Product.GetAll(filter:(y=>(y.Category.Name.ToLower()==category.ToLower())),includeProperties: "Category");
+                if (allItems.Count()==0)
+                {
+                    return NotFound("No products avaliable for this category.");
+                }
+                return Ok(allItems);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex.Message, "Get(int id)", "Exception");
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
+            }
+        }
 
     }
 }
