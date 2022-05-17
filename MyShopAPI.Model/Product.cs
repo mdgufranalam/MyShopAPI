@@ -25,12 +25,11 @@ namespace ShopAPI.Models
         [Range(1, 100000)]
         [Display(Name = "Offer Price")]
         public double Price { get; set; }
-
         //[Required(ErrorMessage = "Price for 51+ cannot be blank.")]
         //[Range(1, 100000)]
         //[Display(Name = "Price for 51+")]
         //public double Price50 { get; set; }
-        
+
         [ValidateNever]
         public string ImageUrl { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
@@ -43,6 +42,16 @@ namespace ShopAPI.Models
         [ValidateNever]
         public Category Category { get; set; }
 
+        //added for better offer
+        //private double _listprice;
+        //private double _price;
+
+        [NotMapped]
+        [ValidateNever]
+        public int DiscountPerc { get { return (int)(100 * ((ListPrice) - Price) / ListPrice); }
+            set { }        
         
+        }
+
     }
 }

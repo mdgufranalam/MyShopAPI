@@ -18,6 +18,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddResponseCaching();
 
+//Ilogger
+builder.Logging.AddFile($"{Directory.GetCurrentDirectory()}\\Serilog\\log.text");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

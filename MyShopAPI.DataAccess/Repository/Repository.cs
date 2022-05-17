@@ -28,6 +28,36 @@ namespace ShopAPI.DataAccess.Repository
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
+            try
+            {
+                IQueryable<T> query = dbSet;
+                if (filter != null)
+                {
+                    query = query.Where(filter);
+                }
+                if (includeProperties != null)
+                {
+                    foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        query = query.Include(includeProp);
+                    }
+                }
+                //if (filter != null)
+                //{
+                //    query = query.Where(filter);
+                //}
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public IQueryable<T> GetAllIQueryable(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
+        {
             IQueryable<T> query = dbSet;
             if (filter != null)
             {
@@ -44,7 +74,7 @@ namespace ShopAPI.DataAccess.Repository
             //{
             //    query = query.Where(filter);
             //}
-            return query.ToList();
+            return query;
         }
 
         public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = true)

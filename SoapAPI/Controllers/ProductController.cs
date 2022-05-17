@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ShopAPI.DataAccess;
@@ -29,6 +30,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
+       
         public IActionResult Get()
         {
             try
@@ -229,5 +231,72 @@ namespace ShopAPI.Controllers
             }
         }
 
+        [HttpGet("[action]")]
+        public IActionResult PagingProducts(int? pageno,int? pagesize)
+        {
+            try
+            {
+                var products = _unitOfWork.Product.GetAll(includeProperties:"Category").OrderByDescending(a=>a.LastUpdateDate);
+                if (products.Count() == 0)
+                {
+                    return NotFound();
+                }
+                var currentPageNumber = pageno ?? 1;
+                var currentPageSize = pagesize ?? 5;
+
+                return Ok(products.Skip((currentPageNumber-1)*currentPageSize).Take(currentPageSize));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult SortProduct(string? criteria,string? sort)
+        {
+            try
+            {
+                IOrderedQueryable<Product> products;
+                var sortcriteria = criteria ?? "lastupdatedate";
+                var sortwise = sort ?? "desc";
+                switch (sortcriteria)
+                {
+                    case "lastupdatedate":
+                        if (sortwise == "desc")
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderByDescending(a => a.LastUpdateDate);
+                        else
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderBy(p => p.LastUpdateDate);
+                        break;
+                    case "price":
+                        if (sortwise == "desc")
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderByDescending(p => p.ListPrice);
+                        else
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderBy(p => p.Price);
+                        break;
+                    case "category":
+                        if (sortwise == "desc")
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderByDescending(p => p.Category.Name);
+                        else
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderBy(p => p.Category.Name);
+                        break;
+                    case "betteroffer":
+                        //DiscountPerc is not present in table so i converted into list
+                        var productstemp = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").ToList().OrderByDescending(p => p.DiscountPerc);
+                           return Ok(productstemp);
+                      
+                    default:
+                        products = (IOrderedQueryable<Product>)_unitOfWork.Product.GetAllIQueryable(includeProperties: "Category");
+                        break;
+                }
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

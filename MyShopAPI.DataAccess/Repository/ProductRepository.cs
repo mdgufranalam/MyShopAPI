@@ -146,8 +146,9 @@ namespace ShopAPI.DataAccess.Repository
                     _item.Title = product.Title;
                     _item.Description = product.Description;
                     _item.ListPrice = product.ListPrice;
-                    _item.Price = product.Price;                   
-                    _item.ImageUrl = product.ImageUrl;
+                    _item.Price = product.Price;     
+                    if(product.ImageUrl != null)
+                     _item.ImageUrl = product.ImageUrl;
                     _item.LastUpdateDate = DateTime.Now;
                     _item.CategoryId = product.CategoryId;
                     // _item.Category.Id = product.CategoryId;
