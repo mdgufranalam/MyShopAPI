@@ -1,4 +1,5 @@
-﻿using ShopAPI.DataAccess.Repository.IRepository;
+﻿using ShopAPI.DataAccess.Repository;
+using ShopAPI.DataAccess.Repository.IRepository;
 
 namespace ShopAPI.DataAccess
 {
@@ -6,7 +7,7 @@ namespace ShopAPI.DataAccess
     {
         ICategoryRepository Category { get; }
         IProductRepository Product { get; }
-
+        IShopingCartRepository ShoppingCart { get; }
         void Save();
     }
 }

@@ -4,6 +4,7 @@ using ShopAPI.DataAccess;
 using ShopAPI.DataAccess.Data;
 using ShopAPI.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ShopAPI.Controllers
 {
@@ -25,6 +26,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet]
         [ResponseCache(Duration =60,Location =ResponseCacheLocation.Client)]
+        [Authorize]
         public IActionResult Get()
         {
             try

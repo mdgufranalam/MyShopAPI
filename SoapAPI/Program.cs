@@ -1,4 +1,5 @@
 using BulkyBook.DataAccess.DbInitializer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using ShopAPI.DataAccess;
 using ShopAPI.DataAccess.Data;
@@ -17,6 +18,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServe
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddResponseCaching();
+//Auth0
+// 1. Add Authentication Services
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.Authority = "https://quote.au.auth0.com/";
+    options.Audience = "https://localhost:7151";
+});
+
+//till here
 
 //Ilogger
 builder.Logging.AddFile($"{Directory.GetCurrentDirectory()}\\Serilog\\log.text");
@@ -35,6 +49,9 @@ app.UseStaticFiles();
 app.UseRouting();
 SeedDatabase(); //initialize the DB
 app.UseResponseCaching();
+// 2. Enable authentication middleware
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

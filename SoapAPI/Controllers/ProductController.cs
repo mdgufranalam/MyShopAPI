@@ -30,7 +30,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
-       
+       [Authorize]
         public IActionResult Get()
         {
             try
@@ -46,6 +46,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet("{id}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
+        [Authorize]
         public IActionResult Get(int id)
         {
             try
@@ -66,6 +67,7 @@ namespace ShopAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult CreateProduct(Product item)
         {
             try
@@ -88,6 +90,7 @@ namespace ShopAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public IActionResult EditProduct(int id, Product item)
         {
             try
@@ -115,6 +118,7 @@ namespace ShopAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             try
@@ -139,6 +143,7 @@ namespace ShopAPI.Controllers
 
         [HttpPost]
         [Route("UploadFile")]
+        [Authorize]
         public IActionResult UploadFile(IFormFile? file)
         {
             try
@@ -194,7 +199,8 @@ namespace ShopAPI.Controllers
 
         }
 
-        [HttpGet("[action]/{searchstring}")]       
+        [HttpGet("[action]/{searchstring}")]
+        [Authorize]
         public IActionResult SearchProducts(string searchstring)
         {
             try
@@ -212,17 +218,23 @@ namespace ShopAPI.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
         }
-        [HttpGet("[action]/{category}")]       
+        [HttpGet("[action]/{category}")]
+        [Authorize]
         public IActionResult CategoryWiseProduct(string category)
         {
             try
             {
-                var allItems = _unitOfWork.Product.GetAll(filter:(y=>(y.Category.Name.ToLower()==category.ToLower())),includeProperties: "Category");
-                if (allItems.Count()==0)
+               
+                if(category.ToLower()=="all")
+                {
+                    return Ok(_unitOfWork.Product.GetAll(includeProperties: "Category").OrderByDescending(a => a.LastUpdateDate));
+                }
+                var filteredItems = _unitOfWork.Product.GetAll(filter:(y=>(y.Category.Name.ToLower()==category.ToLower())),includeProperties: "Category");
+                if (filteredItems.Count()==0)
                 {
                     return NotFound("No products avaliable for this category.");
                 }
-                return Ok(allItems);
+                return Ok(filteredItems);
             }
             catch (Exception ex)
             {
@@ -232,6 +244,7 @@ namespace ShopAPI.Controllers
         }
 
         [HttpGet("[action]")]
+        [Authorize]
         public IActionResult PagingProducts(int? pageno,int? pagesize)
         {
             try
@@ -254,6 +267,7 @@ namespace ShopAPI.Controllers
         }
 
         [HttpGet("[action]")]
+         [Authorize]
         public IActionResult SortProduct(string? criteria,string? sort)
         {
             try
