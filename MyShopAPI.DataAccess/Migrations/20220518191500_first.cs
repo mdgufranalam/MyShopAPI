@@ -1,13 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ShopAPI.DataAccess.Migrations
 {
-    public partial class ProductAdded : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
@@ -18,8 +34,9 @@ namespace ShopAPI.DataAccess.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ListPrice = table.Column<double>(type: "float", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Price50 = table.Column<double>(type: "float", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -43,6 +60,9 @@ namespace ShopAPI.DataAccess.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

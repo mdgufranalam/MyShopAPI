@@ -1,5 +1,6 @@
 using BulkyBook.DataAccess.DbInitializer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 using Microsoft.EntityFrameworkCore;
 using ShopAPI.DataAccess;
 using ShopAPI.DataAccess.Data;
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServe
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddResponseCaching();
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
 //Auth0
 // 1. Add Authentication Services
 builder.Services.AddAuthentication(options =>

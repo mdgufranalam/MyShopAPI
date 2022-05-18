@@ -12,8 +12,8 @@ using ShopAPI.DataAccess.Data;
 namespace ShopAPI.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220515181842_Price50+Removed")]
-    partial class Price50Removed
+    [Migration("20220518191500_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
