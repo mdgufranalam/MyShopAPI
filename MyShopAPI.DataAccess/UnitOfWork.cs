@@ -20,11 +20,17 @@ namespace ShopAPI.DataAccess
             Category = new CategoryRepository(context);
             Product = new ProductRepository(context);
             ShoppingCart = new ShopingCartRepository(context);
+            ApplicationUser = new ApplicationUserRepository(context);
+            OrderHeader = new OrderHeaderRepository(context);
+            OrderDetails = new OrderDetailsRepository(context);
         }
         public ICategoryRepository Category { get; private set; }
 
         public IProductRepository Product { get; private set; } 
         public IShopingCartRepository ShoppingCart { get; private set; } 
+        public IApplicationUserRepository ApplicationUser { get; private set; } 
+        public IOrderHeaderRepository OrderHeader { get; private set; } 
+        public IOrderDetailsRepository OrderDetails { get; private set; } 
 
         public void Save()
         {

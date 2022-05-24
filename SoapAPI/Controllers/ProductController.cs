@@ -30,7 +30,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
-       [Authorize]
+       //[Authorize]
         public IActionResult Get()
         {
             try
@@ -46,7 +46,7 @@ namespace ShopAPI.Controllers
         }
         [HttpGet("{id}")]
         [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
-        [Authorize]
+        //[Authorize]
         public IActionResult Get(int id)
         {
             try
