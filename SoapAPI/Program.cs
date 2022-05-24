@@ -35,7 +35,7 @@ builder.Services.AddAuthentication(options =>
 //till here
 
 //Ilogger
-builder.Logging.AddFile($"{Directory.GetCurrentDirectory()}\\Serilog\\log.text");
+builder.Logging.AddFile($"{Directory.GetCurrentDirectory()}\\Serilog\\log.txt");
 
 var app = builder.Build();
 
