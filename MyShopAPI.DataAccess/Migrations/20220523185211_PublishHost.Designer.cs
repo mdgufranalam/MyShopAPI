@@ -12,8 +12,8 @@ using ShopAPI.DataAccess.Data;
 namespace ShopAPI.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220518191500_first")]
-    partial class first
+    [Migration("20220523185211_PublishHost")]
+    partial class PublishHost
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

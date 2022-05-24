@@ -1,0 +1,316 @@
+2022-05-24T00:07:26.8578313+05:30 0HMHSTD4FVCJD:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/Product - - (ca22a1cb)
+2022-05-24T00:07:32.5068073+05:30 0HMHSTD4FVCJD:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/Product - - - 404 0 - 5673.9280ms (791a596a)
+2022-05-24T00:08:18.0271276+05:30 0HMHSTD4FVCJF:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Category - - (ca22a1cb)
+2022-05-24T00:08:18.0555453+05:30 0HMHSTD4FVCJF:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:08:18.0980910+05:30 0HMHSTD4FVCJF:00000002 [INF] Route matched with "{action = \"Get\", controller = \"Category\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.CategoryController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:08:18.1675452+05:30 0HMHSTD4FVCJF:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:08:18.9821124+05:30 0HMHSTD4FVCJF:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2022-05-24T00:08:19.1749776+05:30 0HMHSTD4FVCJF:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[ShopAPI.Models.Category, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-05-24T00:08:19.2778916+05:30 0HMHSTD4FVCJF:00000002 [INF] Executed action "ShopAPI.Controllers.CategoryController.Get (ShopAPI)" in 1148.9413ms (afa2e885)
+2022-05-24T00:08:19.2781027+05:30 0HMHSTD4FVCJF:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:08:19.2915589+05:30 0HMHSTD4FVCJF:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Category - - - 200 - application/json;+charset=utf-8 1263.8777ms (791a596a)
+2022-05-24T00:10:09.9378137+05:30 0HMHSTD4FVCJG:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product - - (ca22a1cb)
+2022-05-24T00:10:09.9405950+05:30 0HMHSTD4FVCJG:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:10:09.9414777+05:30 0HMHSTD4FVCJG:00000002 [INF] Route matched with "{action = \"Get\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:10:09.9785247+05:30 0HMHSTD4FVCJG:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:10:12.0032197+05:30 0HMHSTD4FVCJG:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T00:10:12.0228515+05:30 0HMHSTD4FVCJG:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Linq.OrderedEnumerable`2[[ShopAPI.Models.Product, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (605b4265)
+2022-05-24T00:10:12.0270178+05:30 0HMHSTD4FVCJG:00000002 [INF] Executed action "ShopAPI.Controllers.ProductController.Get (ShopAPI)" in 2085.4955ms (afa2e885)
+2022-05-24T00:10:12.0270652+05:30 0HMHSTD4FVCJG:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:10:12.0271821+05:30 0HMHSTD4FVCJG:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product - - - 200 - application/json;+charset=utf-8 2089.3691ms (791a596a)
+2022-05-24T00:17:37.2789522+05:30 0HMHSTD4FVCJH:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product - - (ca22a1cb)
+2022-05-24T00:17:37.2814567+05:30 0HMHSTD4FVCJH:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:17:37.2816373+05:30 0HMHSTD4FVCJH:00000002 [INF] Route matched with "{action = \"Get\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:17:37.2849859+05:30 0HMHSTD4FVCJH:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:17:43.4170747+05:30 0HMHSTD4FVCJH:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T00:17:43.4177935+05:30 0HMHSTD4FVCJH:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Linq.OrderedEnumerable`2[[ShopAPI.Models.Product, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (605b4265)
+2022-05-24T00:17:43.4186397+05:30 0HMHSTD4FVCJH:00000002 [INF] Executed action "ShopAPI.Controllers.ProductController.Get (ShopAPI)" in 6136.9591ms (afa2e885)
+2022-05-24T00:17:43.4186721+05:30 0HMHSTD4FVCJH:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:17:43.4187902+05:30 0HMHSTD4FVCJH:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product - - - 200 - application/json;+charset=utf-8 6139.9991ms (791a596a)
+2022-05-24T00:17:51.6242349+05:30 0HMHSTD4FVCJH:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Category - - (ca22a1cb)
+2022-05-24T00:17:51.6247509+05:30 0HMHSTD4FVCJH:00000003 [INF] Executing endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:17:51.6248120+05:30 0HMHSTD4FVCJH:00000003 [INF] Route matched with "{action = \"Get\", controller = \"Category\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.CategoryController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:17:51.6266871+05:30 0HMHSTD4FVCJH:00000003 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:17:51.6292904+05:30 0HMHSTD4FVCJH:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2022-05-24T00:17:51.6295170+05:30 0HMHSTD4FVCJH:00000003 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[ShopAPI.Models.Category, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-05-24T00:17:51.6296435+05:30 0HMHSTD4FVCJH:00000003 [INF] Executed action "ShopAPI.Controllers.CategoryController.Get (ShopAPI)" in 4.8139ms (afa2e885)
+2022-05-24T00:17:51.6296587+05:30 0HMHSTD4FVCJH:00000003 [INF] Executed endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:17:51.6297266+05:30 0HMHSTD4FVCJH:00000003 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Category - - - 200 - application/json;+charset=utf-8 5.5027ms (791a596a)
+2022-05-24T00:18:59.8549793+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:19:02.7277139+05:30  [INF] Executed DbCommand ("309"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T00:19:03.2309428+05:30  [INF] Executed DbCommand ("491"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T00:19:03.3752675+05:30  [INF] User profile is available. Using '"C:\Users\mdgalam2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-05-24T00:19:03.6599077+05:30  [INF] Now listening on: "https://localhost:7151" (d826f4b8)
+2022-05-24T00:19:03.6628373+05:30  [INF] Now listening on: "http://localhost:5151" (d826f4b8)
+2022-05-24T00:19:03.6692113+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-24T00:19:03.6729863+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-24T00:19:03.6776325+05:30  [INF] Content root path: "C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\SoapAPI\" (b5d60022)
+2022-05-24T00:19:36.3202037+05:30 0HMHSTJTU6P51:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product - - (ca22a1cb)
+2022-05-24T00:19:39.7400508+05:30 0HMHSTJTU6P51:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:19:39.7497337+05:30 0HMHSTJTU6P51:00000002 [INF] Route matched with "{action = \"Get\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:19:39.7638612+05:30 0HMHSTJTU6P51:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:19:46.3104097+05:30 0HMHSTJTU6P51:00000002 [ERR] Failed executing DbCommand ("342"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (627a98df)
+2022-05-24T00:19:46.3665103+05:30 0HMHSTJTU6P51:00000002 [ERR] An exception occurred while iterating over the results of a query for context type '"ShopAPI.DataAccess.Data.ApplicationDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__19_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:d554ae6e-a128-4170-a4a2-d0bfcb0dcf64
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__19_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ShopAPI.DataAccess.Repository.Repository`1.GetAll(Expression`1 filter, String includeProperties) in C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\MyShopAPI.DataAccess\Repository\Repository.cs:line 49
+ClientConnectionId:d554ae6e-a128-4170-a4a2-d0bfcb0dcf64
+Error Number:208,State:1,Class:16
+2022-05-24T00:19:46.4532677+05:30 0HMHSTJTU6P51:00000002 [WRN] Invalid object name 'Products'. (4868cbcf)
+2022-05-24T00:19:46.4617633+05:30 0HMHSTJTU6P51:00000002 [INF] Executing "ObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-05-24T00:19:46.4880067+05:30 0HMHSTJTU6P51:00000002 [INF] Executed action "ShopAPI.Controllers.ProductController.Get (ShopAPI)" in 6727.8233ms (afa2e885)
+2022-05-24T00:19:46.4881058+05:30 0HMHSTJTU6P51:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:19:46.4928202+05:30 0HMHSTJTU6P51:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product - - - 400 - text/plain;+charset=utf-8 10175.8925ms (791a596a)
+2022-05-24T00:20:16.7764298+05:30 0HMHSTJTU6P51:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product - - (ca22a1cb)
+2022-05-24T00:20:16.7802568+05:30 0HMHSTJTU6P51:00000003 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:20:16.7813864+05:30 0HMHSTJTU6P51:00000003 [INF] Route matched with "{action = \"Get\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:20:16.8509988+05:30 0HMHSTJTU6P51:00000003 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:20:19.1736023+05:30 0HMHSTJTU6P51:00000003 [ERR] Failed executing DbCommand ("323"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (627a98df)
+2022-05-24T00:20:19.1800432+05:30 0HMHSTJTU6P51:00000003 [ERR] An exception occurred while iterating over the results of a query for context type '"ShopAPI.DataAccess.Data.ApplicationDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__19_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:d554ae6e-a128-4170-a4a2-d0bfcb0dcf64
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__19_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ShopAPI.DataAccess.Repository.Repository`1.GetAll(Expression`1 filter, String includeProperties) in C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\MyShopAPI.DataAccess\Repository\Repository.cs:line 49
+ClientConnectionId:d554ae6e-a128-4170-a4a2-d0bfcb0dcf64
+Error Number:208,State:1,Class:16
+2022-05-24T00:20:33.7403861+05:30 0HMHSTJTU6P51:00000003 [WRN] Invalid object name 'Products'. (4868cbcf)
+2022-05-24T00:20:33.7422133+05:30 0HMHSTJTU6P51:00000003 [INF] Executing "ObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-05-24T00:20:33.7424650+05:30 0HMHSTJTU6P51:00000003 [INF] Executed action "ShopAPI.Controllers.ProductController.Get (ShopAPI)" in 16960.9782ms (afa2e885)
+2022-05-24T00:20:33.7425214+05:30 0HMHSTJTU6P51:00000003 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:20:33.7427330+05:30 0HMHSTJTU6P51:00000003 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product - - - 400 - text/plain;+charset=utf-8 16966.3011ms (791a596a)
+2022-05-24T00:22:03.9741355+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:22:11.8073579+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:23:04.0313952+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:23:06.5489101+05:30  [INF] Executed DbCommand ("313"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T00:23:06.8674987+05:30  [INF] Executed DbCommand ("311"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T00:23:07.1887088+05:30  [INF] Executed DbCommand ("320"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T00:23:07.6176315+05:30  [INF] Executed DbCommand ("345"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2022-05-24T00:23:07.9310372+05:30  [INF] Executed DbCommand ("312"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T00:23:08.2551105+05:30  [INF] Executed DbCommand ("324"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T00:23:08.5742578+05:30  [INF] Executed DbCommand ("316"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2022-05-24T00:23:08.5929416+05:30  [INF] Applying migration '"20220523185211_PublishHost"'. (0e2ac64d)
+2022-05-24T00:23:09.2964820+05:30  [INF] Executed DbCommand ("315"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [CreatedDateTime] datetime2 NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2022-05-24T00:23:09.6564976+05:30  [INF] Executed DbCommand ("357"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [ListPrice] float NOT NULL,
+    [Price] float NOT NULL,
+    [ImageUrl] nvarchar(max) NOT NULL,
+    [CreatedDateTime] datetime2 NOT NULL,
+    [LastUpdateDate] datetime2 NOT NULL,
+    [CategoryId] int NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE
+);" (0723d8ff)
+2022-05-24T00:23:09.9734000+05:30  [INF] Executed DbCommand ("317"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);" (0723d8ff)
+2022-05-24T00:23:10.3499412+05:30  [INF] Executed DbCommand ("376"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220523185211_PublishHost', N'6.0.5');" (0723d8ff)
+2022-05-24T00:27:15.7139077+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:27:18.4504543+05:30  [INF] Executed DbCommand ("324"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T00:27:18.7834419+05:30  [INF] Executed DbCommand ("318"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T00:27:19.1403106+05:30  [INF] Executed DbCommand ("332"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2022-05-24T00:27:19.2985853+05:30  [INF] User profile is available. Using '"C:\Users\mdgalam2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-05-24T00:27:19.5592243+05:30  [INF] Now listening on: "https://localhost:7151" (d826f4b8)
+2022-05-24T00:27:19.5609593+05:30  [INF] Now listening on: "http://localhost:5151" (d826f4b8)
+2022-05-24T00:27:19.5661565+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-24T00:27:19.5677834+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-24T00:27:19.5696069+05:30  [INF] Content root path: "C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\SoapAPI\" (b5d60022)
+2022-05-24T00:27:29.8707723+05:30 0HMHSTOB2FTUA:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product - - (ca22a1cb)
+2022-05-24T00:27:33.2262429+05:30 0HMHSTOB2FTUA:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:27:33.2427629+05:30 0HMHSTOB2FTUA:00000002 [INF] Route matched with "{action = \"Get\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:27:33.2529214+05:30 0HMHSTOB2FTUA:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:27:37.8735134+05:30 0HMHSTOB2FTUA:00000002 [INF] Executed DbCommand ("316"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T00:27:37.8859426+05:30 0HMHSTOB2FTUA:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Linq.OrderedEnumerable`2[[ShopAPI.Models.Product, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (605b4265)
+2022-05-24T00:27:37.9319684+05:30 0HMHSTOB2FTUA:00000002 [INF] Executed action "ShopAPI.Controllers.ProductController.Get (ShopAPI)" in 4684.2969ms (afa2e885)
+2022-05-24T00:27:37.9320582+05:30 0HMHSTOB2FTUA:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:27:37.9367914+05:30 0HMHSTOB2FTUA:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product - - - 200 - application/json;+charset=utf-8 8068.8268ms (791a596a)
+2022-05-24T00:27:49.8426567+05:30 0HMHSTOB2FTUA:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Category - - (ca22a1cb)
+2022-05-24T00:27:49.8449658+05:30 0HMHSTOB2FTUA:00000003 [INF] Executing endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (500cc934)
+2022-05-24T00:27:49.8458738+05:30 0HMHSTOB2FTUA:00000003 [INF] Route matched with "{action = \"Get\", controller = \"Category\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "ShopAPI.Controllers.CategoryController" ("ShopAPI"). (122b2fdf)
+2022-05-24T00:27:49.8926675+05:30 0HMHSTOB2FTUA:00000003 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T00:27:50.2136909+05:30 0HMHSTOB2FTUA:00000003 [INF] Executed DbCommand ("314"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2022-05-24T00:27:50.2141626+05:30 0HMHSTOB2FTUA:00000003 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[ShopAPI.Models.Category, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-05-24T00:27:50.2148575+05:30 0HMHSTOB2FTUA:00000003 [INF] Executed action "ShopAPI.Controllers.CategoryController.Get (ShopAPI)" in 368.943ms (afa2e885)
+2022-05-24T00:27:50.2148875+05:30 0HMHSTOB2FTUA:00000003 [INF] Executed endpoint '"ShopAPI.Controllers.CategoryController.Get (ShopAPI)"' (99874f2b)
+2022-05-24T00:27:50.2151750+05:30 0HMHSTOB2FTUA:00000003 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Category - - - 200 - application/json;+charset=utf-8 372.5340ms (791a596a)
+2022-05-24T01:14:34.4466436+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T01:14:37.3783195+05:30  [INF] Executed DbCommand ("353"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T01:14:37.7014641+05:30  [INF] Executed DbCommand ("311"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T01:14:38.0489173+05:30  [INF] Executed DbCommand ("317"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2022-05-24T01:14:38.2275840+05:30  [INF] User profile is available. Using '"C:\Users\mdgalam2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-05-24T01:14:38.4829089+05:30  [INF] Now listening on: "https://localhost:7151" (d826f4b8)
+2022-05-24T01:14:38.4844398+05:30  [INF] Now listening on: "http://localhost:5151" (d826f4b8)
+2022-05-24T01:14:38.4876299+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-24T01:14:38.4891100+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-24T01:14:38.4904092+05:30  [INF] Content root path: "C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\SoapAPI\" (b5d60022)
+2022-05-24T11:54:06.2108195+05:30  [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T11:54:31.8615350+05:30  [INF] Executed DbCommand ("2,138"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2022-05-24T11:54:32.3143142+05:30  [INF] Executed DbCommand ("408"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2022-05-24T11:54:33.2505792+05:30  [INF] Executed DbCommand ("840"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2022-05-24T11:54:33.8332107+05:30  [INF] User profile is available. Using '"C:\Users\mdgalam2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-05-24T11:54:34.6207792+05:30  [INF] Now listening on: "https://localhost:7151" (d826f4b8)
+2022-05-24T11:54:34.6251165+05:30  [INF] Now listening on: "http://localhost:5151" (d826f4b8)
+2022-05-24T11:54:34.6355462+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-24T11:54:34.6405782+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-24T11:54:34.6452739+05:30  [INF] Content root path: "C:\Users\mdgalam2\source\repos\MyProject\MyShopAPI\SoapAPI\" (b5d60022)
+2022-05-24T11:58:30.8791631+05:30 0HMHT9QF92Q88:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:7151/api/Product/SortProduct?criteria=all - - (ca22a1cb)
+2022-05-24T11:58:35.0019464+05:30 0HMHT9QF92Q88:00000002 [INF] Executing endpoint '"ShopAPI.Controllers.ProductController.SortProduct (ShopAPI)"' (500cc934)
+2022-05-24T11:58:35.0929872+05:30 0HMHT9QF92Q88:00000002 [INF] Route matched with "{action = \"SortProduct\", controller = \"Product\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult SortProduct(System.String, System.String)" on controller "ShopAPI.Controllers.ProductController" ("ShopAPI"). (122b2fdf)
+2022-05-24T11:58:35.1693373+05:30 0HMHT9QF92Q88:00000002 [INF] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "None" (d2805559)
+2022-05-24T11:59:16.4478314+05:30 0HMHT9QF92Q88:00000002 [INF] Executed DbCommand ("413"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T11:59:25.6199924+05:30 0HMHT9QF92Q88:00000002 [INF] Executed DbCommand ("334"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T11:59:27.7883724+05:30 0HMHT9QF92Q88:00000002 [INF] Executing "OkObjectResult", writing value of type '"Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[[ShopAPI.Models.Product, ShopAPI.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-05-24T11:59:28.3459024+05:30 0HMHT9QF92Q88:00000002 [INF] Executed DbCommand ("381"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[CreatedDateTime], [p].[Description], [p].[ImageUrl], [p].[LastUpdateDate], [p].[ListPrice], [p].[Price], [p].[Title], [c].[Id], [c].[CreatedDateTime], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]" (0723d8ff)
+2022-05-24T11:59:28.4780846+05:30 0HMHT9QF92Q88:00000002 [INF] Executed action "ShopAPI.Controllers.ProductController.SortProduct (ShopAPI)" in 53361.3099ms (afa2e885)
+2022-05-24T11:59:28.4799919+05:30 0HMHT9QF92Q88:00000002 [INF] Executed endpoint '"ShopAPI.Controllers.ProductController.SortProduct (ShopAPI)"' (99874f2b)
+2022-05-24T11:59:28.5037867+05:30 0HMHT9QF92Q88:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:7151/api/Product/SortProduct?criteria=all - - - 200 - application/json;+charset=utf-8 57636.0389ms (791a596a)

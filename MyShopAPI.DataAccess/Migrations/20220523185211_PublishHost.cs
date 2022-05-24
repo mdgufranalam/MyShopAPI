@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ShopAPI.DataAccess.Migrations
 {
-    public partial class first : Migration
+    public partial class PublishHost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

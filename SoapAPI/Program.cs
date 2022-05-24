@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(options =>
 }).AddJwtBearer(options =>
 {
     options.Authority = "https://quote.au.auth0.com/";
-    options.Audience = "https://localhost:7151";
+    options.Audience = builder.Configuration["Auth0:Audience"];
 });
 
 //till here

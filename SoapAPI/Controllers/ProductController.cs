@@ -285,7 +285,7 @@ namespace ShopAPI.Controllers
                         break;
                     case "price":
                         if (sortwise == "desc")
-                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderByDescending(p => p.ListPrice);
+                            products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderByDescending(p => p.Price);
                         else
                             products = _unitOfWork.Product.GetAllIQueryable(includeProperties: "Category").OrderBy(p => p.Price);
                         break;
