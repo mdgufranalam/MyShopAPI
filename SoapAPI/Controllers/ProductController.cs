@@ -205,7 +205,7 @@ namespace ShopAPI.Controllers
         {
             try
             {
-                var allItems = _unitOfWork.Product.GetAll(filter: y => (y.Title.ToLower().Contains(searchstring.ToLower()) || y.Category.Name.ToLower().Contains(searchstring.ToLower()) || y.Category.Description.ToLower().Contains(searchstring.ToLower()) || y.Description.ToLower().Contains(searchstring.ToLower())), includeProperties: "Category");
+                var allItems = _unitOfWork.Product.GetAll(filter: y => (y.Title.ToLower().Contains(searchstring.ToLower()) || y.Category.Name.ToLower().Contains(searchstring.ToLower())  || y.Description.ToLower().Contains(searchstring.ToLower())), includeProperties: "Category");
                 if (allItems.Count() == 0)
                 {
                     return NotFound("Product not found.");

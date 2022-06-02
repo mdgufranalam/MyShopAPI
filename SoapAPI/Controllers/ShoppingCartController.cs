@@ -123,6 +123,7 @@ namespace ShopAPI.Controllers
                 {
                     _unitOfWork.ShoppingCart.Remove(cart);
                     var countt = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count - 1;
+                    _unitOfWork.Save();
                     return Ok(countt);
                 }
                 else

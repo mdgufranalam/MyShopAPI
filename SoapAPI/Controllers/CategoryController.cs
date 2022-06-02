@@ -31,6 +31,8 @@ namespace ShopAPI.Controllers
         {
             try
             {
+                _logger.LogWarning("Delete(int id)");
+                _logger.LogInformation("Fetching Categories.", "Get()");
                 return Ok(_unitOfWork.Category.GetAll());
             }
             catch (Exception ex)
@@ -49,6 +51,7 @@ namespace ShopAPI.Controllers
                 var category = _unitOfWork.Category.GetFirstOrDefault(a => a.Id == id);
                 if (category == null)
                 {
+                    _logger.LogInformation("Category not found.", "Get()");
                     return NotFound("Category not found.");
                 }
                 return Ok(category);
@@ -67,21 +70,24 @@ namespace ShopAPI.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _logger.LogInformation("Category created successfully. : " + JsonConvert.SerializeObject(item), "CreateCategory(Category item)");
+                   
+                    
                     item.CreatedDateTime = DateTime.Now;
                     _unitOfWork.Category.Add(item);
                     _unitOfWork.Save();
+                    _logger.LogInformation("Category created successfully. : " + JsonConvert.SerializeObject(item), "CreateCategory(Category item)");
                     return Ok("Category created successfully.");
                 }
                 else
                 {
+                    _logger.LogInformation("ModelState Validation Failed, Model : "+JsonConvert.SerializeObject(item), "CreateCategory(Category item)");
                     return BadRequest(ModelState);
                 }
                
             }
             catch (Exception ex)
             {
-                // _logger.LogWarning(ex.Message, "CreateCategory(Category item)", "Exception");
+                _logger.LogWarning(ex.Message, "CreateCategory(Category item)", "Exception");
                 return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
         }
@@ -96,22 +102,25 @@ namespace ShopAPI.Controllers
                 { var isValid=_unitOfWork.Category.GetFirstOrDefault(a=>a.Id == id);
                     if (isValid == null)
                     {
+                        _logger.LogInformation("Category not found.", "EditCategory()");
                         return NotFound("Category not found.");
                     }
                     item.Id = id;
                     _unitOfWork.Category.Update(item);                   
                     _unitOfWork.Save();
+                    _logger.LogInformation("Category updated successfully.", "EditCategory()");
                     return Ok("Category updated successfully.");
                 }
                 else
                 {
+                    _logger.LogInformation("ModelState validation failed, Category : "+JsonConvert.SerializeObject(item), "EditCategory()");
                     return BadRequest(ModelState);
                 }
                
             }
             catch (Exception ex)
             {
-                // _logger.LogWarning(ex.Message, "EditCategory(int id,Category item)", "Exception");
+                _logger.LogWarning(ex.Message, "EditCategory(int id,Category item)", "Exception");
                 return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
         }
@@ -128,12 +137,13 @@ namespace ShopAPI.Controllers
                     }
                    _unitOfWork.Category.Remove(item);
                     _unitOfWork.Save();
-                    return Ok("Category deleted successfully.");  
+                _logger.LogInformation("Category deleted successfully.", "Delete()");
+                return Ok("Category deleted successfully.");  
                 
             }
             catch (Exception ex)
             {
-                //_logger.LogWarning(ex.Message, "Delete(int id)", "Exception");
+                _logger.LogWarning(ex.Message, "Delete(int id)", "Exception");
                 return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
         }

@@ -29,5 +29,20 @@ namespace ShopAPI.DataAccess.Repository
                 }
             }
         }
+        public void Update(OrderHeader obj)
+        {
+            
+            _context.OrderHeaders.Update(obj);
+        }
+
+        public void UpdateStripePaymentID(int id, string sessionId, string paymentItentId)
+        {
+            var orderFromDb = _context.OrderHeaders.FirstOrDefault(u => u.Id == id);
+            orderFromDb.PaymentDate = DateTime.Now;
+            orderFromDb.SessionId = sessionId;
+            orderFromDb.PaymentIntentId = paymentItentId;
+        }
+
+
     }
 }

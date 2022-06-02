@@ -10,6 +10,6 @@ namespace ShopAPI.Models
     {
         public int Id { get; set; }
         public string OrderStatus { get; set; }
-        public string PaymentStatus { get; set; }
+        public string? PaymentStatus { get; set; }
     }
 }
